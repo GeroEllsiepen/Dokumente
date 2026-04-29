@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Mehrere PDFs anzeigen</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #222;
+      color: white;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .pdf-item {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #444;
+    }
+
+    .pdf-item:hover {
+      background: #444;
+    }
+
+    .viewer {
+      flex: 1;
+      background: #eee;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Meine PDFs</h2>
+
+    <div class="pdf-item" onclick="loadPDF('Ell_BoardingSchool.pdf')">Datei 1</div>
+    <div class="pdf-item" onclick="loadPDF('Ell_WorkshopUniBonn.pdf')">Datei 2</div>
+    <div class="pdf-item" onclick="loadPDF('Ell_CambridgeCertificate.pdf')">Datei 3</div>
+    <div class="pdf-item" onclick="loadPDF('20231122PhysikWettbewerb.pdf')">Datei 4</div>
+    <div class="pdf-item" onclick="loadPDF('Ell_BiliSekI.pdf')">Datei 5</div>
+  </div>
+
+  <div class="viewer">
+    <iframe id="pdfViewer" src="pdfs/datei1.pdf"></iframe>
+  </div>
+
+  <script>
+    function loadPDF(pdf) {
+      document.getElementById("pdfViewer").src = pdf;
+    }
+  </script>
+
+</body>
+</html>
